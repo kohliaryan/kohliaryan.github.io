@@ -29,8 +29,9 @@
             @apply opacity-100 translate-y-0;
         }
 
+        /* Styles for project cards to make them pop */
         .project-card {
-            @apply bg-white rounded-lg p-6 transition-all duration-300 transform border border-gray-200;
+            @apply bg-white rounded-lg p-6 transition-all duration-300 transform border border-gray-200 flex flex-col;
         }
         
         /* Updated hover effect for a more subtle, pro feel */
@@ -53,6 +54,16 @@
                 transform: translateY(0);
             }
         }
+
+        /* Back to top button styles */
+        #back-to-top {
+            @apply fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg opacity-0 transition-opacity duration-300;
+            z-index: 10;
+        }
+
+        #back-to-top.show {
+            @apply opacity-100;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -71,36 +82,77 @@
             </p>
         </section>
 
-        <!-- Future Projects Section -->
+        <!-- Skills Section -->
         <section class="section mb-8 md:mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">Future Projects</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">My Skills</h2>
+            <div class="flex flex-wrap gap-4">
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">HTML</span>
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">CSS</span>
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">JavaScript</span>
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">React</span>
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">Python</span>
+                <span class="bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full font-medium text-sm">Node.js</span>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="section mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">Featured Projects</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Project Card 1 -->
-                <a href="#" class="project-card">
-                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 1</h3>
-                    <p class="text-sm text-slate-600 mb-3">A brief description of what this project will be about. Mention the problem it solves and the technologies you plan to use.</p>
-                    <span class="inline-block text-sm font-semibold text-indigo-600">
-                        Learn More &rarr;
-                    </span>
-                </a>
-
-                <!-- Project Card 2 -->
-                <a href="#" class="project-card">
-                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 2</h3>
-                    <p class="text-sm text-slate-600 mb-3">A concise summary of your second planned project. What is its main goal and what makes it unique?</p>
-                    <span class="inline-block text-sm font-semibold text-indigo-600">
-                        Learn More &rarr;
-                    </span>
-                </a>
-
-                <!-- Project Card 3 -->
-                <a href="#" class="project-card">
-                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 3</h3>
-                    <p class="text-sm text-slate-600 mb-3">Describe your third project idea here. You can include details on the features you want to implement.</p>
-                    <span class="inline-block text-sm font-semibold text-indigo-600">
-                        Learn More &rarr;
-                    </span>
-                </a>
+                <!-- Featured Project Card 1 -->
+                <div class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">My Awesome App</h3>
+                    <p class="text-sm text-slate-600 mb-3 flex-grow">A full-stack web application for task management. It features user authentication, a real-time dashboard, and a clean, responsive UI.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">React</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">Node.js</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">MongoDB</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-auto">
+                        <a href="#" class="inline-block text-sm font-semibold text-indigo-600 hover:underline">
+                            View Project
+                        </a>
+                        <a href="#" class="inline-block text-sm font-semibold text-gray-500 hover:underline">
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+                <!-- Featured Project Card 2 -->
+                <div class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Data Visualization Dashboard</h3>
+                    <p class="text-sm text-slate-600 mb-3 flex-grow">An interactive dashboard that visualizes sales data from a spreadsheet. Built with D3.js and vanilla JavaScript to highlight key trends.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">D3.js</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">JavaScript</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">HTML/CSS</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-auto">
+                        <a href="#" class="inline-block text-sm font-semibold text-indigo-600 hover:underline">
+                            View Project
+                        </a>
+                        <a href="#" class="inline-block text-sm font-semibold text-gray-500 hover:underline">
+                            Source Code
+                        </a>
+                    </div>
+                </div>
+                <!-- Featured Project Card 3 -->
+                <div class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Mobile-First Blog</h3>
+                    <p class="text-sm text-slate-600 mb-3 flex-grow">A highly performant and SEO-optimized blog with a focus on mobile-first design. It uses a headless CMS for content management.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">Next.js</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">Tailwind CSS</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full text-xs">Contentful</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-auto">
+                        <a href="#" class="inline-block text-sm font-semibold text-indigo-600 hover:underline">
+                            View Project
+                        </a>
+                        <a href="#" class="inline-block text-sm font-semibold text-gray-500 hover:underline">
+                            Source Code
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -119,6 +171,14 @@
             &copy; 2025 Your Name. All Rights Reserved.
         </footer>
     </div>
+    
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
     <script>
         // Use IntersectionObserver for a performance-friendly fade-in animation on scroll
         const sections = document.querySelectorAll('.section');
@@ -136,6 +196,24 @@
 
         sections.forEach(section => {
             observer.observe(section);
+        });
+
+        // Back to top button logic
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
