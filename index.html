@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name's Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Switched to a light, professional theme for better readability */
+            @apply bg-slate-50 text-slate-800;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Base styles for all sections */
+        .section {
+            @apply bg-white p-8 md:p-10 lg:p-12 rounded-xl shadow-xl transition-all duration-700 opacity-0 transform translate-y-8;
+        }
+        
+        /* Class to apply for fade-in animation */
+        .section.is-visible {
+            @apply opacity-100 translate-y-0;
+        }
+
+        .project-card {
+            @apply bg-white rounded-lg p-6 transition-all duration-300 transform border border-gray-200;
+        }
+        
+        /* Updated hover effect for a more subtle, pro feel */
+        .project-card:hover {
+            @apply translate-y-[-4px] shadow-2xl;
+        }
+
+        /* Hero Text Animation - Fade in */
+        .hero-text {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+        <!-- Header Section -->
+        <header class="text-center py-12 md:py-16 lg:py-20 hero-text">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-indigo-600 leading-tight">Your Name</h1>
+            <p class="text-lg md:text-xl text-slate-600 mt-2 font-medium">Developer, Designer, Creator</p>
+        </header>
+
+        <!-- About Section -->
+        <section class="section mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">About Me</h2>
+            <p class="text-slate-700 leading-relaxed">
+                Hi there! I'm a passionate developer with a strong focus on creating clean, efficient, and user-friendly web applications. I love solving complex problems and am constantly learning new technologies. This portfolio is a showcase of my completed projects and a roadmap for the exciting things I'm currently working on.
+            </p>
+        </section>
+
+        <!-- Future Projects Section -->
+        <section class="section mb-8 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">Future Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Project Card 1 -->
+                <a href="#" class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 1</h3>
+                    <p class="text-sm text-slate-600 mb-3">A brief description of what this project will be about. Mention the problem it solves and the technologies you plan to use.</p>
+                    <span class="inline-block text-sm font-semibold text-indigo-600">
+                        Learn More &rarr;
+                    </span>
+                </a>
+
+                <!-- Project Card 2 -->
+                <a href="#" class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 2</h3>
+                    <p class="text-sm text-slate-600 mb-3">A concise summary of your second planned project. What is its main goal and what makes it unique?</p>
+                    <span class="inline-block text-sm font-semibold text-indigo-600">
+                        Learn More &rarr;
+                    </span>
+                </a>
+
+                <!-- Project Card 3 -->
+                <a href="#" class="project-card">
+                    <h3 class="text-xl font-bold text-indigo-500 mb-2">Project Name 3</h3>
+                    <p class="text-sm text-slate-600 mb-3">Describe your third project idea here. You can include details on the features you want to implement.</p>
+                    <span class="inline-block text-sm font-semibold text-indigo-600">
+                        Learn More &rarr;
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Social Links Section -->
+        <section class="section mb-8 md:mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-indigo-600 mb-6">Connect With Me</h2>
+            <div class="flex flex-wrap justify-center items-center gap-6">
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors font-medium">GitHub</a>
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition-colors font-medium">LinkedIn</a>
+                <a href="mailto:youremail@example.com" class="text-indigo-600 hover:text-indigo-800 transition-colors font-medium">Email</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-slate-500 text-sm">
+            &copy; 2025 Your Name. All Rights Reserved.
+        </footer>
+    </div>
+    <script>
+        // Use IntersectionObserver for a performance-friendly fade-in animation on scroll
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once it's visible
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
